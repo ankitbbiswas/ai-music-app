@@ -25,8 +25,6 @@ SECRET_KEY = "django-insecure-n6818p4r0dyq6zbp^c&r)$$k%us3mkiu^bx)u=y-t_#y6=lg$&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -123,3 +121,5 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+ALLOWED_HOSTS = ["opulent-train-r5j79w9p9v42pjjq-8000.app.github.dev", "127.0.0.1", "localhost"]
