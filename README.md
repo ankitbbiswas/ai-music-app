@@ -1,7 +1,7 @@
 # AI Music App - Project Structure
 
 ## Overview
-This AI Music App allows users to generate and play AI-generated music using the Hugging Face API. The app is built with **React (Frontend)** and **Django (Backend)**, hosted on Replit.
+This AI Music App allows users to generate and play AI-generated music using the Hugging Face API. The app is built with **React (Frontend)** and **Django (Backend)**.
 
 ## Project Directory Structure
 ```
@@ -77,4 +77,3 @@ This AI Music App allows users to generate and play AI-generated music using the
 
 ---
 This document outlines the structure and setup for your AI Music App. Let me know if you need modifications! 🚀
-
