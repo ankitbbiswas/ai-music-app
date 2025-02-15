@@ -1,0 +1,25 @@
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Database
+*.sqlite3
+*.db
+
+# Static files
+staticfiles/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# macOS files
+.DS_Store
