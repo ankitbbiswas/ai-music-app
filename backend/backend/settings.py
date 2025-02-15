@@ -20,10 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-n6818p4r0dyq6zbp^c&r)$$k%us3mkiu^bx)u=y-t_#y6=lg$&"
+SECRET_KEY = "django-insecure-8$y89wdvja*sk=ugn+-wtc&ah^1zrbw%pb495v+o-@uo#^3@_f"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -35,8 +37,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'rest_framework',
-    'backend.api',
 ]
 
 MIDDLEWARE = [
@@ -121,5 +121,3 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-ALLOWED_HOSTS = ["opulent-train-r5j79w9p9v42pjjq-8000.app.github.dev", "127.0.0.1", "localhost"]
