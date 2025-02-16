@@ -12,7 +12,7 @@ class GenerateMusic(APIView):
 
         # Call Hugging Face API
         response = requests.post(
-            'https://api-inference.huggingface.co/models/your-model-name',
+            'https://api-inference.huggingface.co/models/facebook/musicgen-small',
             headers={'Authorization': f'Bearer {api_key}'},
             json={'inputs': request.data.get('prompt')}
         )
