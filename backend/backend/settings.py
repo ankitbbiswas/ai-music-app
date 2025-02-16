@@ -27,6 +27,11 @@ import os
 load_dotenv()
 HUGGING_FACE_API_KEY = os.getenv('HUGGING_FACE_API_KEY')
 
+# Cros urls handle
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React app URL
+]
+
 SECRET_KEY = "django-insecure-8$y89wdvja*sk=ugn+-wtc&ah^1zrbw%pb495v+o-@uo#^3@_f"
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -46,6 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "api",
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -62,6 +68,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "backend.urls"
