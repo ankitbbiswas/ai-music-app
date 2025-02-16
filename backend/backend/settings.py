@@ -21,11 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# Environmental .env for the API Key
-from dotenv import load_dotenv
+# Environmental .env for the API Key from Google Gemini
 import os
+from dotenv import load_dotenv
+
 load_dotenv()
-HUGGING_FACE_API_KEY = os.getenv('HUGGING_FACE_API_KEY')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # Cros urls handle
 CORS_ALLOWED_ORIGINS = [

@@ -1,29 +1,36 @@
+import google.generativeai as genai
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-import requests
-from .models import Music
-from .serializers import MusicSerializer
 
-class GenerateMusic(APIView):
+genai.configure(api_key=settings.GEMINI_API_KEY)
+
+class SearchMusic(APIView):
     def post(self, request):
-        # Access the API key from settings
-        api_key = settings.HUGGING_FACE_API_KEY
+        query = request.data.get('query')  # Song name or search query
+        if not query:
+            return Response({'error': 'Query is required'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Call Hugging Face API
-        response = requests.post(
-            'https://api-inference.huggingface.co/models/facebook/musicgen-small',
-            headers={'Authorization': f'Bearer {api_key}'},
-            json={'inputs': request.data.get('prompt')}
-        )
+        try:
+            # Use Gemini to search for the song
+            model = genai.GenerativeModel('gemini-pro')
+            response = model.generate_content(f"Search for the song '{query}' and return the most relevant result along with related songs.")
 
-        if response.status_code == 200:
-            # Save the generated music
-            music = Music.objects.create(
-                title=request.data.get('title'),
-                generated_music=response.content
-            )
-            serializer = MusicSerializer(music)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response({'error': 'Failed to generate music'}, status=response.status_code)
+            # Parse the response (example format)
+            main_song = {
+                'title': 'Main Song Title',
+                'artist': 'Main Song Artist',
+                'url': 'https://www.youtube.com/embed/VIDEO_ID',  # Embed URL for playback
+            }
+            related_songs = [
+                {'title': 'Related Song 1', 'url': 'https://www.youtube.com/embed/VIDEO_ID_1'},
+                {'title': 'Related Song 2', 'url': 'https://www.youtube.com/embed/VIDEO_ID_2'},
+            ]
+
+            return Response({
+                'main_song': main_song,
+                'related_songs': related_songs,
+            }, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

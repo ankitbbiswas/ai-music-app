@@ -1,13 +1,13 @@
 import React from 'react';
-import MusicGenerator from './components/MusicGenerator';
+import MusicSearch from './components/MusicSearch';
 
 function App() {
-  return (
-    <div className="App">
-      <h1>AI Music App</h1>
-      <MusicGenerator />
-    </div>
-  );
+    return (
+        <div className="App">
+            <h1>AI Music App</h1>
+            <MusicSearch />
+        </div>
+    );
 }
 
 export default App;
